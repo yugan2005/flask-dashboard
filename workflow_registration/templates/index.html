@@ -1,5 +1,24 @@
 {% extends "layout.html" %}
-{% block body %}
-    <h1>Overview</h1>
-    <p>Do you want to <a href="{{ url_for('login') }}">log in?</a> </p>
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "helpers/tables.html" as tables %}
+{% block app_navbar %}
+    <div>Workflow registration</div>
+{% endblock %}
+{% block app_content %}
+    <h1>Register Workflow</h1>
+    <div class="row">
+    <div class="col-md-4">
+        {{ wtf.quick_form(workflow_form, action=url_for('workflow_reg.reg_workflow'), method = 'post') }}
+    </div>
+    </div>
+{#    <form action="/reg_workflow" method="post">#}
+{#        <fieldset>#}
+{#            <legend>Register a new Workflow</legend>#}
+{#            {{ forms.render(workflow_form) }}#}
+{#            <p><input type="submit" value="Save"/></p>#}
+{#        </fieldset>#}
+{#    </form>#}
+    <table>
+        {{ tables.render(registered_workflows) }}
+    </table>
 {% endblock %}

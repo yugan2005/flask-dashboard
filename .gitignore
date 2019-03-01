@@ -172,3 +172,10 @@ fabric.properties
 
 # All .idea files
 .idea
+
+# All database files
+*.db
+
+# mac OS files
+.DS_Store
+*/.DS_Store
